@@ -1,0 +1,9 @@
+{
+  "name": "Everforest",
+  "tree": {
+    "$className": "Folder",
+    "Everforest": {
+      "$path": "src"
+    }
+  }
+}

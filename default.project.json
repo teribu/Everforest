@@ -1,0 +1,12 @@
+{
+  "name": "Everforest",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "Everforest": {
+        "$path": "src"
+      }
+    }
+  }
+}

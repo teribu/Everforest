@@ -4,7 +4,7 @@ A Roblox UI library inspired by the [osu!](https://osu.ppy.sh) interface, built 
 
 ## ⚡ Features
 
-* [osu!](https://osu.ppy.sh)-inspired visual design
+* osu!-inspired visual design
 * Theme support
 * Modular architecture
 * Lightweight and customizable
@@ -20,9 +20,7 @@ local Everforest = loadstring(game:HttpGet(
 
 ## 📜 Usage
 
-See the example implementation in:
-
-[test.luau](tests/test.luau)
+See the example implementation in: [test.luau](tests/test.luau)
 
 ## ❤️ Credits
 

@@ -1,10 +1,10 @@
 # 🌿 Everforest
 
-A Roblox UI library inspired by the osu! interface, built with Luau.
+A Roblox UI library inspired by the [osu!](https://osu.ppy.sh) interface, built with Luau.
 
 ## ⚡ Features
 
-* osu!-inspired visual design
+* [osu!](https://osu.ppy.sh)-inspired visual design
 * Theme support
 * Modular architecture
 * Lightweight and customizable
@@ -22,14 +22,12 @@ local Everforest = loadstring(game:HttpGet(
 
 See the example implementation in:
 
-```txt
-tests/test.luau
-```
+[test.luau](tests/test.luau)
 
 ## ❤️ Credits
 
-* osu! — Inspiration for the visual design and interface style
-* latte-soft/wax — Bundler used for release builds
+* [osu!](https://osu.ppy.sh) — Inspiration for the visual design and interface style
+* [wax](https://github.com/latte-soft/wax) — Bundler used for release builds
 
 ## 📄 License
 

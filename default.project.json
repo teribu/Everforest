@@ -3,9 +3,15 @@
   "tree": {
     "$className": "DataModel",
     "ReplicatedStorage": {
-      "$className": "ReplicatedStorage",
       "Everforest": {
         "$path": "src"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Test": {
+          "$path": "tests/test.client.luau"
+        }
       }
     }
   }

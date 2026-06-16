@@ -1,27 +1,53 @@
 # 🌿 Everforest
 
-A modular and customizable Roblox UI library built with Luau.
+A Roblox UI library inspired by the osu! interface, built with Luau.
 
 ## ⚡ Features
 
-- Modern and clean interface
-- Theme support
-- Modular architecture
-- Lightweight and customizable
+* osu!-inspired visual design
+* Theme support
+* Modular architecture
+* Lightweight and customizable
+* Rojo-based development workflow
+* Single-file release builds with Wax
 
-## 🔌 Installation
+## 📦 Installation
 
-Clone the repository or add it to your project using Rojo.
+### Rojo
+
+Add Everforest to your project and require it normally:
+
+```lua
+local Everforest = require(game.ReplicatedStorage.Everforest)
+```
+
+### Release Build
+
+Download the latest bundled release from GitHub Releases and load it in your project.
 
 ## 📜 Usage
 
-See the example script: [tests/test.luau](tests/test.luau)
+See the example implementation in:
+
+```txt
+tests/test.luau
+```
+
+## 🛠 Development
+
+Everforest is developed with:
+
+* Rojo
+* Lune
+* Wax
+
+Source files are located in the `src` directory.
 
 ## ❤️ Credits
 
-- [dawid-scripts/Fluent](https://github.com/dawid-scripts/Fluent) — Inspiration for several interface concepts
-- [latte-soft/wax](https://github.com/latte-soft/wax) — Bundler
+* osu! — Inspiration for the visual design and user interface style
+* latte-soft/wax — Bundler used for release builds
 
 ## 📄 License
 
-Licensed under the [MIT License](LICENSE).
+Licensed under the MIT License. See [LICENSE](LICENSE) for details.

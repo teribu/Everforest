@@ -142,9 +142,6 @@ function Element:New(Idx, Config)
 	AddSignal(SliderDisplay.Focused, function()
 		Tween.Play(SliderFrame.Border, { Color = Creator.GetThemeProperty("SliderHold") }, { Duration = 0.1 })
 		Focused = true
-
-		local cleanText = SliderDisplay.Text:gsub(Slider.Suffix, "")
-		SliderDisplay.Text = cleanText
 	end)
 
 	AddSignal(SliderDisplay.FocusLost, function()

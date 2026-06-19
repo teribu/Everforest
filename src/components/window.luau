@@ -2,6 +2,7 @@ local Tween = require("../modules/tween")
 local Creator = require("../modules/creator")
 
 local New = Creator.New
+local AddSignal = Creator.AddSignal
 
 return function(Config)
     local Window = {
@@ -297,7 +298,7 @@ return function(Config)
         return self.State
     end
 
-    game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
+    AddSignal(game:GetService("UserInputService").InputBegan, function(input, gameProcessedEvent)
         if gameProcessedEvent then return end
 
         if input.KeyCode == Window.Keybind then

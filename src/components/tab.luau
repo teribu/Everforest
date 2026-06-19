@@ -118,7 +118,6 @@ function TabModule:New(Title, Icon, Parent)
 
     Navigation.Root = New("Frame", {
         BackgroundTransparency = 1,
-        LayoutOrder = TabIndex,
         Parent = Parent,
         Size = UDim2.new(1, 0, 0, 36)
     }, {
@@ -245,8 +244,7 @@ function TabModule:New(Title, Icon, Parent)
         Size = UDim2.new(1, 0, 0, 90),
         BackgroundColor3 = Color3.fromRGB(49, 47, 57),
         AutomaticSize = Enum.AutomaticSize.Y,
-        Parent = Window.ContainerHolder,
-        LayoutOrder = TabIndex,
+        Parent = Window.ContainerHolder
     }, {
         Page.Header, Page.Container, Page.Fade, Page.Button,
         New("Frame", { BackgroundColor3 = Color3.fromRGB(24, 23, 28), Size = UDim2.new(1, 0, 0, 2) })

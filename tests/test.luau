@@ -26,7 +26,7 @@ local Window = Everforest:CreateWindow({
     },
     Footer = {
         Title = "everforest",
-        Description = Everforest.Version .. " " .. os.date("%Y.%m.%d"),
+        Description = "v" .. Everforest.Version .. " " .. os.date("%Y.%m.%d"),
     },
     Theme = "Dark",
     TabWidth = 200,

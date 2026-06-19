@@ -13,7 +13,7 @@ for arg in sys.argv[1:]:
 NAME = args.get("name", "Project")
 INPUT = args.get("input", "src")
 PARENT = args.get("parent", "game.ReplicatedStorage")
-OUTPUT = args.get("output", f"{NAME}-bundled.lua")
+OUTPUT = args.get("output", f"{NAME}.lua")
 
 tree = {}
 var_id = 0

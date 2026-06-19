@@ -66,10 +66,10 @@ return function(Config)
             PaddingLeft = UDim.new(0, 15),
             PaddingRight = UDim.new(0, 15),
             PaddingTop = UDim.new(0, 24),
-            PaddingBottom = UDim.new(0, 24),
+            PaddingBottom = UDim.new(0, 24)
         }),
         New("UIListLayout", {
-            SortOrder = Enum.SortOrder.LayoutOrder,
+            SortOrder = Enum.SortOrder.LayoutOrder
         }),
         New("TextLabel", {
             TextWrapped = true,
@@ -81,9 +81,9 @@ return function(Config)
             BackgroundTransparency = 1,
             RichText = true,
             Size = UDim2.new(1, 0, 0, 0),
-            Text = Config.Footer.Title or Config.Top.Title,
+            Text = Config.Footer.Title,
             LayoutOrder = 0,
-            AutomaticSize = Enum.AutomaticSize.Y,
+            AutomaticSize = Enum.AutomaticSize.Y
         }),
         New("TextLabel", {
             TextWrapped = true,
@@ -96,7 +96,7 @@ return function(Config)
             RichText = true,
             Size = UDim2.new(1, 0, 0, 0),
             BorderColor3 = Color3.fromRGB(0, 0, 0),
-            Text = Config.Footer.Description or ,
+            Text = Config.Footer.Description,
             LayoutOrder = 1,
             AutomaticSize = Enum.AutomaticSize.Y,
         })

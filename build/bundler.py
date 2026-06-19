@@ -4,8 +4,8 @@
 """
 Project: Scan source files -> Build a virtual ModuleScript tree
 ↓
-Store module sources as:
-Sources[instance] = function(script, require)
+Store module factories as:
+Modules[instance] = function(script, require)
     ...
 end
 ↓
@@ -19,7 +19,7 @@ Recreate the ModuleScript tree at runtime
 ↓
 Override require():
 require(instance)
-→ Sources[instance]
+→ Modules[instance]
 → Execute module
 ↓
 Cache result
@@ -82,7 +82,7 @@ tree = build_tree(INPUT)
 content += f"""
 ]]
 
-local Sources = {{}}
+local Modules = {{}}
 local {NAME} = Instance.new("ModuleScript")
 {NAME}.Name = "{NAME}"
 """
@@ -90,8 +90,8 @@ local {NAME} = Instance.new("ModuleScript")
 
 def generate_source(source):
     source = rewrite_requires(source)
-    source = "function(script, require)\n" + source + "\nend"
-    return source
+    source = "\n".join("    " + line for line in source.splitlines())
+    return f"function(script, require)\n{source}\nend\n"
 
 
 def generate_map(tree, parent):
@@ -109,11 +109,11 @@ def generate_map(tree, parent):
             generate_map(source[2], file)
         else:
             if source[1] == "init":
-                content += f"Sources[{parent}] = {generate_source(source[2])}\n"
+                content += f"Modules[{parent}] = {generate_source(source[2])}\n"
             else:
                 content += f"local {file} = Instance.new('ModuleScript', {parent})\n"
                 content += f'{file}.Name = "{source[1]}"\n'
-                content += f"Sources[{file}] = {generate_source(source[2])}\n"
+                content += f"Modules[{file}] = {generate_source(source[2])}\n"
 
 
 generate_map(tree, NAME)
@@ -124,7 +124,7 @@ local Loading = {{}}
 local OldRequire = require
 
 function Require(target)
-    if Sources[target] ~= nil then
+    if Modules[target] ~= nil then
         if Cache[target] == Loading then
             error("Circular require detected: " .. target:GetFullName())
         end
@@ -132,11 +132,11 @@ function Require(target)
             return Cache[target]
         end
         Cache[target] = Loading
-        local factory = Sources[target]
+        local factory = Modules[target]
         local result = factory(target, Require)
 
         if result == nil then
-            result = true
+            error("ModuleScript '" .. target:GetFullName() .. "' did not return exactly one value", 2)
         end
         Cache[target] = result
         return result

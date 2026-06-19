@@ -90,7 +90,7 @@ local {NAME} = Instance.new("ModuleScript")
 
 def generate_source(source):
     source = rewrite_requires(source)
-    source = "return function(script, require)\n" + source + "\nend"
+    source = "function(script, require)\n" + source + "\nend"
     return source
 
 

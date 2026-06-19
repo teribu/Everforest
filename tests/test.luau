@@ -4,7 +4,7 @@ end
 
 task.wait(3)
 
-local Everforest = loadstring(game:HttpGet("https://github.com/teribu/Everforest/releases/latest/download/main.lua"))()
+local Everforest = loadstring(game:HttpGet("https://github.com/teribu/Everforest/releases/latest/download/Everforest.lua"))()
 
 local Window = Everforest:CreateWindow({
     Top = {

@@ -1,1 +1,3 @@
-Everforest.lua
+Everforest-bundled.lua
+__pycache__/
+*.pyc

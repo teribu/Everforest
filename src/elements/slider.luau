@@ -131,9 +131,9 @@ function Element:New(Idx, Config)
 
         local numValue = tonumber(cleanedText)
         if numValue and numValue > Slider.Max then
-            SliderDisplay.Text = tostring(Slider.Max) .. Config.Suffix
+            SliderDisplay.Text = tostring(Slider.Max) .. Slider.Suffix
         else
-            SliderDisplay.Text = cleanedText .. Config.Suffix
+            SliderDisplay.Text = cleanedText .. Slider.Suffix
         end
 
         isUpdating = false

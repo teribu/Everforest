@@ -1,4 +1,3 @@
-# this bundler is built for Rojo projects.
 # a folder containing init.lua is treated as a ModuleScript.
 # otherwise, it is treated as a normal Folder.
 

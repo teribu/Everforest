@@ -17,6 +17,7 @@ local Creator = {
             BackgroundColor3 = Color3.new(1, 1, 1),
             BorderColor3 = Color3.new(0, 0, 0),
             ScrollBarImageColor3 = Color3.new(0, 0, 0),
+            ScrollingDirection = Enum.ScrollingDirection.Y
         },
         TextLabel = {
             BackgroundColor3 = Color3.new(1, 1, 1),

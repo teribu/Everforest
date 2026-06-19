@@ -100,5 +100,13 @@ return function(Config)
     AddSignal(Top.Button.Activated, function()
         Config.Window:ToggleVisibility()
     end)
+
+    AddSignal(Top.Root.MouseEnter, function()
+        Tween.Play(Top.Root, { BackgroundTransparency = Creator.GetThemeProperty("TopHoverTransparency") }, { Duration = 0.2 })
+    end)
+
+    AddSignal(Top.Root.MouseLeave, function()
+        Tween.Play(Top.Root, { BackgroundTransparency = Creator.GetThemeProperty("TopTransparency") }, { Duration = 0.2 })
+    end)
     return Top
 end

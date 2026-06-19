@@ -24,6 +24,10 @@ local Window = Everforest:CreateWindow({
             Icon = "rbxassetid://89922969033534"
         },
     },
+    Footer = {
+        Title = "everforest",
+        Description = Everforest.Version .. " " .. os.date("%Y.%m.%d"),
+    },
     Theme = "Dark",
     TabWidth = 200,
     Keybind = Enum.KeyCode.LeftControl,

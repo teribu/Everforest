@@ -108,10 +108,16 @@ function Library:CreateWindow(Config)
         Title = "settings",
     }
 
+    local DefaultFooter = {
+        Title = Config.Footer and Config.Footer.Title or Config.Top.Title or DefaultTop.Title,
+        Description = Config.Footer and Config.Footer.Description or ("v" .. Library.Version .. " " .. os.date("%Y.%m.%d")),
+    }
+
     local Window = require(script.components.window)({
         Parent = GUI,
         Top = self:MergeDictionaries(DefaultTop, Config.Top),
         Header = self:MergeDictionaries(DefaultHeader, Config.PageHeader),
+        Footer = self:MergeDictionaries(DefaultFooter, Config.PageFooter),
         TabWidth = Config.TabWidth,
         Keybind = Config.Keybind,
         ContainerWidth = Config.ContainerWidth

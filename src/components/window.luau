@@ -56,6 +56,52 @@ return function(Config)
         })
     })
 
+    Window.Footer = New("Frame", {
+        BackgroundColor3 = Color3.fromRGB(50, 48, 58),
+        AutomaticSize = Enum.AutomaticSize.Y,
+        Size = UDim2.new(1, 0, 0, 82),
+        LayoutOrder = 1
+    }, {
+        New("UIPadding", {
+            PaddingLeft = UDim.new(0, 15),
+            PaddingRight = UDim.new(0, 15),
+            PaddingTop = UDim.new(0, 24),
+            PaddingBottom = UDim.new(0, 24),
+        }),
+        New("UIListLayout", {
+            SortOrder = Enum.SortOrder.LayoutOrder,
+        }),
+        New("TextLabel", {
+            TextWrapped = true,
+            TextSize = 18,
+            TextYAlignment = Enum.TextYAlignment.Top,
+            BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+            FontFace = Font.new([[rbxassetid://11702779409]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+            TextColor3 = Color3.fromRGB(255, 255, 255),
+            BackgroundTransparency = 1,
+            RichText = true,
+            Size = UDim2.new(1, 0, 0, 0),
+            Text = Config.Footer.Title or Config.Top.Title,
+            LayoutOrder = 0,
+            AutomaticSize = Enum.AutomaticSize.Y,
+        }),
+        New("TextLabel", {
+            TextWrapped = true,
+            TextSize = 16,
+            TextYAlignment = Enum.TextYAlignment.Top,
+            BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+            FontFace = Font.new([[rbxassetid://11702779409]], Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+            TextColor3 = Color3.fromRGB(255, 255, 255),
+            BackgroundTransparency = 1,
+            RichText = true,
+            Size = UDim2.new(1, 0, 0, 0),
+            BorderColor3 = Color3.fromRGB(0, 0, 0),
+            Text = Config.Footer.Description or ,
+            LayoutOrder = 1,
+            AutomaticSize = Enum.AutomaticSize.Y,
+        })
+    })
+
     Window.Header = New("Frame", {
         BackgroundColor3 = Color3.fromRGB(255, 255, 255),
         AutomaticSize = Enum.AutomaticSize.Y,
@@ -176,7 +222,8 @@ return function(Config)
             Padding = UDim.new(0, 0),
             SortOrder = Enum.SortOrder.LayoutOrder
         }),
-        Window.Header
+        Window.Header,
+        Window.Footer
     })
 
     Window.TabContainer = New("Frame", {

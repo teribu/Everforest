@@ -1,3 +1,27 @@
+# this bundler is built for Rojo projects.
+# a folder containing init.lua is treated as a ModuleScript.
+# otherwise, it is treated as a normal Folder.
+
+"""
+Project: Scan source files -> Build a virtual ModuleScript tree -> Store sources as {Instance -> string}
+↓
+Rewrite relative requires: require("./creator") -> require(script.Parent.creator)
+↓
+Wrap every module
+
+return function(script, require)
+    ...
+end
+↓
+Generate a single Lua file
+↓
+Recreate the ModuleScript tree at runtime
+↓
+Override require(): require(instance) -> Sources[instance] -> loadstring(source)
+↓
+Execute module
+"""
+
 import sys
 from pathlib import Path
 
@@ -12,7 +36,6 @@ for arg in sys.argv[1:]:
 
 NAME = args.get("name", "Project")
 INPUT = args.get("input", "src")
-PARENT = args.get("parent", "game.ReplicatedStorage")
 OUTPUT = args.get("output", f"{NAME}.lua")
 
 tree = {}
@@ -51,7 +74,7 @@ content += f"""
 ]]
 
 local Sources = {{}}
-local {NAME} = Instance.new("ModuleScript", {PARENT})
+local {NAME} = Instance.new("ModuleScript")
 {NAME}.Name = "{NAME}"
 """
 

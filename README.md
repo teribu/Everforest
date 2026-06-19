@@ -1,6 +1,7 @@
 # 🌿 Everforest
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d1eb9dbc-1514-4a88-83f5-0f0ad11c9081" />
 
-A Roblox UI library inspired by the [osu!](https://osu.ppy.sh) interface, built with Luau.
+A Roblox UI library inspired by [osu!](https://osu.ppy.sh/), built with Luau and designed for modern scripting utilities.
 
 ## ⚡ Features
 
@@ -9,6 +10,7 @@ A Roblox UI library inspired by the [osu!](https://osu.ppy.sh) interface, built 
 * Modular architecture
 * Lightweight and customizable
 * Single-file release builds
+* Custom Luau bundling pipeline
 
 ## 📦 Installation
 
@@ -25,6 +27,7 @@ See the example implementation in: [test.luau](tests/test.luau)
 ## ❤️ Credits
 
 * [osu!](https://osu.ppy.sh) — Inspiration for the visual design and interface style
+* [rojo](https://github.com/rojo-rbx/rojo) — Development workflow
 ## 📄 License
 
 Licensed under the MIT License. See [LICENSE](LICENSE) for details.

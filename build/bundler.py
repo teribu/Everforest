@@ -36,6 +36,10 @@ for arg in sys.argv[1:]:
 NAME = args.get("name", "Project")
 INPUT = args.get("input", "src")
 OUTPUT = args.get("output", f"{NAME}.lua")
+SOURCE_EXTENSIONS = {
+    ".lua",
+    ".luau",
+}
 
 tree = {}
 var_id = 0
@@ -58,7 +62,7 @@ def build_tree(folder):
         if item.is_dir():
             content += f"Folder: {item.name}\n"
             tree[next_var()] = ["Folder", item.name, build_tree(item)]
-        else:
+        elif item.suffix in SOURCE_EXTENSIONS:
             content += f"{folder}\\{item.stem}\n"
             tree[next_var()] = [
                 "ModuleScript",

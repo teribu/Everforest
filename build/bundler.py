@@ -2,23 +2,29 @@
 # otherwise, it is treated as a normal Folder.
 
 """
-Project: Scan source files -> Build a virtual ModuleScript tree -> Store sources as {Instance -> string}
+Project: Scan source files -> Build a virtual ModuleScript tree
 ↓
-Rewrite relative requires: require("./creator") -> require(script.Parent.creator)
-↓
-Wrap every module
-
-return function(script, require)
+Store module sources as:
+Sources[instance] = function(script, require)
     ...
 end
+↓
+Rewrite relative requires:
+require("./creator")
+→ require(script.Parent.creator)
 ↓
 Generate a single Lua file
 ↓
 Recreate the ModuleScript tree at runtime
 ↓
-Override require(): require(instance) -> Sources[instance] -> loadstring(source)
+Override require():
+require(instance)
+→ Sources[instance]
+→ Execute module
 ↓
-Execute module
+Cache result
+↓
+Return module exports
 """
 
 import sys
@@ -58,7 +64,7 @@ def build_tree(folder):
     tree = {}
     global content
 
-    for item in Path(folder).iterdir():
+    for item in sorted(Path(folder).iterdir()):
         if item.is_dir():
             content += f"Folder: {item.name}\n"
             tree[next_var()] = ["Folder", item.name, build_tree(item)]
@@ -82,20 +88,9 @@ local {NAME} = Instance.new("ModuleScript")
 """
 
 
-def lua_long_string(text):
-    level = 0
-    while True:
-        eq = "=" * level
-        if f"]{eq}]" not in text:
-            return f"[{eq}[{text}]{eq}]"
-
-        level += 1
-
-
 def generate_source(source):
     source = rewrite_requires(source)
     source = "return function(script, require)\n" + source + "\nend"
-    source = lua_long_string(source)
     return source
 
 
@@ -130,35 +125,20 @@ local OldRequire = require
 
 function Require(target)
     if Sources[target] ~= nil then
-
         if Cache[target] == Loading then
-            error(
-                "Circular require detected: "
-                    .. target:GetFullName()
-            )
+            error("Circular require detected: " .. target:GetFullName())
         end
-
         if Cache[target] ~= nil then
             return Cache[target]
         end
-
         Cache[target] = Loading
-
-        local factory = assert(
-            loadstring(Sources[target])
-        )()
-
-        local result = factory(
-            target,
-            Require
-        )
+        local factory = Sources[target]
+        local result = factory(target, Require)
 
         if result == nil then
             result = true
         end
-
         Cache[target] = result
-
         return result
     end
 

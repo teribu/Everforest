@@ -1,9 +1,3 @@
-while not game:IsLoaded() do
-    task.wait()
-end
-
-task.wait(3)
-
 local Everforest = require(game:GetService("ReplicatedStorage"):WaitForChild("Everforest"))
 
 local Window = Everforest:CreateWindow({

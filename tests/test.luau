@@ -1,9 +1,3 @@
-while not game:IsLoaded() do
-    task.wait()
-end
-
-task.wait(3)
-
 local Everforest = loadstring(game:HttpGet("https://github.com/teribu/Everforest/releases/latest/download/Everforest.lua"))()
 
 local Window = Everforest:CreateWindow({

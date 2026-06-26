@@ -1,3 +1,4 @@
+local SaveManager = loadstring(game:HttpGet("https://github.com/teribu/my-tools/raw/main/savemanager/savemanager.luau"))()
 local Everforest = loadstring(game:HttpGet("https://github.com/teribu/Everforest/releases/latest/download/Everforest.lua"))()
 
 local Window = Everforest:CreateWindow({
@@ -412,3 +413,5 @@ task.delay(1, function()
         Duration = 5,
     })
 end)
+
+SaveManager:init(Everforest)

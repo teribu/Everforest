@@ -10,7 +10,6 @@ A Roblox UI library inspired by [osu!](https://osu.ppy.sh/), built with Luau and
 * Modular architecture
 * Lightweight and customizable
 * Single-file release builds
-* Custom Luau bundling pipeline
 
 ## 📦 Installation
 
@@ -27,6 +26,7 @@ See the example implementation in: [test.luau](tests/test.luau)
 ## ❤️ Credits
 
 * [osu!](https://osu.ppy.sh) — Inspiration for the visual design and interface style
+* [bundler](https://github.com/teribu/my-tools/tree/main/bundler) — Luau bundler using
 * [rojo](https://github.com/rojo-rbx/rojo) — Development workflow
 ## 📄 License
 

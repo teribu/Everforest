@@ -18,6 +18,7 @@ ProtectGui(GUI)
 NotificationModule:Init(GUI)
 
 local Library = {
+    Name = "Everforest",
     Version = "1.0.0",
     Window = nil,
     Options = {},
